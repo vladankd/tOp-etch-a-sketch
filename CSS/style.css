@@ -1,0 +1,25 @@
+:root {
+  /* default box sizing */
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.125em;
+}
+
+#main_heading {
+  text-align: center;
+}
+
+.container {
+  width: 780px;
+  height: 780px;
+  margin: auto;
+  border: 2px solid black;
+}
