@@ -27,4 +27,8 @@ body {
   display: inline-block;
   text-align: center;
   border: 1px solid black;
+  vertical-align: top;
+}
+.row {
+  line-height: 0;
 }
