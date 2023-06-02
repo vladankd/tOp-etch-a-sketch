@@ -18,8 +18,13 @@ body {
 }
 
 .container {
-  width: 780px;
-  height: 780px;
+  width: 720px;
+  height: 720px;
   margin: auto;
-  border: 2px solid black;
+  box-shadow: 0 0 7px 4px rgba(8, 136, 136, 0.4);
+}
+.pixel {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid black;
 }
