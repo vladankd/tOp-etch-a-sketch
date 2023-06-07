@@ -32,3 +32,13 @@ body {
 .row {
   line-height: 0;
 }
+
+.controls_container {
+  background-color: rgba(11, 74, 182, 0.577);
+  margin-top: 1em;
+}
+
+#reset_btn {
+  border: 1px solid black;
+  padding: 1.5em;
+}

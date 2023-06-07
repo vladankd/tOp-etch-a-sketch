@@ -1,8 +1,9 @@
 let containerWidth = 720;
 
 const container = document.querySelector(".container");
+const colorPicker = document.querySelector("#color_picker");
 
-createGrid(32);
+createGrid(8);
 
 const pixels = document.querySelectorAll(".pixel");
 
@@ -10,12 +11,8 @@ const resetGrid = document.querySelector("#reset_btn");
 resetGrid.addEventListener("click", clearGridColors);
 
 pixels.forEach((px) => {
-  px.addEventListener("mouseover", (e) => {
-    let color = "rgb(123,123,123)";
-    if (e.buttons) {
-      e.target.style.backgroundColor = color;
-    }
-  });
+  px.addEventListener("mousedown", paint);
+  px.addEventListener("mouseover", paintDrag);
 });
 
 // progaram functions
@@ -41,4 +38,15 @@ function clearGridColors() {
   pixels.forEach((px) => {
     px.style.backgroundColor = "white";
   });
+}
+
+function paintDrag(e) {
+  let color = colorPicker.value;
+  if (e.buttons) {
+    e.target.style.backgroundColor = color;
+  }
+}
+function paint(e) {
+  let color = colorPicker.value;
+  e.target.style.backgroundColor = color;
 }
