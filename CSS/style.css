@@ -17,7 +17,7 @@ body {
   text-align: center;
 }
 
-.container {
+.canvas_container {
   width: 720px;
   height: 720px;
   margin: auto;
@@ -28,6 +28,7 @@ body {
   text-align: center;
   border: 1px solid black;
   vertical-align: top;
+  transition: all 0.47s;
 }
 .row {
   line-height: 0;
@@ -36,9 +37,16 @@ body {
 .controls_container {
   background-color: rgba(11, 74, 182, 0.577);
   margin-top: 1em;
+  padding: 0.5em 1em;
 }
 
 #reset_btn {
   border: 1px solid black;
   padding: 1.5em;
+}
+
+input[type="range"] {
+  display: block;
+  padding: 1em;
+  writing-mode: horizontal-tb;
 }
