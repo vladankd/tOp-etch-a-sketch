@@ -40,9 +40,15 @@ body {
   padding: 0.5em 1em;
 }
 
-#reset_btn {
+.controls_btn {
   border: 1px solid black;
   padding: 1.5em;
+}
+
+.active {
+  color: bisque;
+  background-color: cadetblue;
+  border: 5px solid red;
 }
 
 input[type="range"] {

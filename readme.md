@@ -4,3 +4,12 @@
 - create reset grid colors functionality
 - choose color functionality
 - grid size selector
+- add random colors painting button
+
+# button is added
+
+# toggles on button press
+
+# added active class to style the pressed button
+
+## NOTES
