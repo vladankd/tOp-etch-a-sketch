@@ -4,15 +4,25 @@ const canvasContainer = document.querySelector(".canvas_container");
 const colorPicker = document.querySelector("#color_picker");
 const randomColorBtn = document.querySelector("#random_color_btn");
 const shaderBtn = document.querySelector("#shade_color_btn");
+const lightenBtn = document.querySelector("#lighten_color_btn");
 
 // Shader
 shaderBtn.addEventListener("click", (e) => {
   shaderBtn.classList.toggle("active");
-  console.log(shaderBtn.classList);
   let pixels = document.querySelectorAll(".pixel");
   Array.from(pixels).forEach((px) => {
     px.classList.toggle("shading");
     px.addEventListener("mouseenter", shadePixels);
+  });
+});
+
+// Lighten
+lightenBtn.addEventListener("click", (e) => {
+  lightenBtn.classList.toggle("active");
+  let pixels = document.querySelectorAll(".pixel");
+  Array.from(pixels).forEach((px) => {
+    px.classList.toggle("lighten");
+    px.addEventListener("mouseenter", lightenPixels);
   });
 });
 
@@ -41,6 +51,9 @@ range.addEventListener("change", (e) => {
   }
   if (shaderBtn.classList.contains("active")) {
     shaderBtn.classList.toggle("active");
+  }
+  if (lightenBtn.classList.contains("active")) {
+    lightenBtn.classList.toggle("active");
   }
 
   gridSizeValueSpan.forEach((span) => (span.innerText = range.value));
@@ -121,13 +134,30 @@ function shadePixels(e) {
     if (e.target.style.backgroundColor) {
       let pxColor = e.target.style.backgroundColor;
       const rgbValues = pxColor.match(/\d+/g);
-      let r = rgbValues[0];
-      let g = rgbValues[1];
-      let b = rgbValues[2];
+      let r = parseInt(rgbValues[0]);
+      let g = parseInt(rgbValues[1]);
+      let b = parseInt(rgbValues[2]);
 
       r -= 25;
       g -= 25;
       b -= 25;
+
+      e.target.style.backgroundColor = `rgb(${r},${g},${b})`;
+    }
+  }
+}
+function lightenPixels(e) {
+  if (e.target.classList.contains("lighten")) {
+    if (e.target.style.backgroundColor) {
+      let pxColor = e.target.style.backgroundColor;
+      const rgbValues = pxColor.match(/\d+/g);
+      let r = parseInt(rgbValues[0]);
+      let g = parseInt(rgbValues[1]);
+      let b = parseInt(rgbValues[2]);
+
+      r += 10;
+      g += 10;
+      b += 10;
 
       e.target.style.backgroundColor = `rgb(${r},${g},${b})`;
     }

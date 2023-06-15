@@ -10,5 +10,6 @@
   #added active class to style the pressed button
 - add darken(shader) functionality
 - style controls
+- add lighten colors functionality
 
 ## NOTES
