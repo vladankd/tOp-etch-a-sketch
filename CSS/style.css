@@ -1,4 +1,6 @@
 :root {
+  /* Colors */
+  --main-bg-color: rgba(8, 136, 136, 0.4);
   /* default box sizing */
   box-sizing: border-box;
 }
@@ -21,7 +23,7 @@ body {
   width: 720px;
   height: 720px;
   margin: auto;
-  box-shadow: 0 0 7px 4px rgba(8, 136, 136, 0.4);
+  box-shadow: 0 0 7px 4px var(--main-bg-color);
 }
 .pixel {
   display: inline-block;
@@ -35,9 +37,16 @@ body {
 }
 
 .controls_container {
-  background-color: rgba(11, 74, 182, 0.577);
+  background-color: var(--main-bg-color);
   margin-top: 1em;
   padding: 0.5em 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls_container > * {
+  margin: 0 1em;
 }
 
 .controls_btn {
@@ -46,9 +55,9 @@ body {
 }
 
 .active {
-  color: bisque;
-  background-color: cadetblue;
-  border: 5px solid red;
+  color: rgb(248, 247, 246);
+  background-color: rgb(23, 124, 128);
+  border: 1px solid rgb(248, 247, 246);
 }
 
 input[type="range"] {

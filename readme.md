@@ -8,7 +8,7 @@
   #button is added
   #toggles on button press
   #added active class to style the pressed button
-
-- add darken and lighten pixels functionality
+- add darken(shader) functionality
+- style controls
 
 ## NOTES
