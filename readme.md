@@ -1,4 +1,4 @@
-#Etch-a-Sketch application
+## Etch-a-Sketch application
 
 - create 16x16 grid of divs in javascript
 - create reset grid colors functionality
@@ -9,7 +9,14 @@
   #toggles on button press
   #added active class to style the pressed button
 - add darken(shader) functionality
-- style controls
+- style the controls
 - add lighten colors functionality
 
 ## NOTES
+
+#TODO
+
+- should add that when lighten is selected shade is removed and vice versa
+- background color picker
+- erese pixel color
+- grid size value display while range scrol is moved
