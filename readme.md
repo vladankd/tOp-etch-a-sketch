@@ -11,12 +11,12 @@
 - add darken(shader) functionality
 - style the controls
 - add lighten colors functionality
+  #when lighten is selected shader is deselected and vice versa
+- add erese pixel color functionality
 
 ## NOTES
 
 #TODO
 
-- should add that when lighten is selected shade is removed and vice versa
-- background color picker
 - erese pixel color
 - grid size value display while range scrol is moved

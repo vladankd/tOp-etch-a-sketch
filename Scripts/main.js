@@ -1,10 +1,11 @@
-let canvasContainerWidth = 720;
+let canvasContainerWidth = 640;
 
 const canvasContainer = document.querySelector(".canvas_container");
 const colorPicker = document.querySelector("#color_picker");
 const randomColorBtn = document.querySelector("#random_color_btn");
 const shaderBtn = document.querySelector("#shade_color_btn");
 const lightenBtn = document.querySelector("#lighten_color_btn");
+const ereseBtn = document.querySelector("#erese_btn");
 
 // Shader
 shaderBtn.addEventListener("click", (e) => {
@@ -30,11 +31,19 @@ lightenBtn.addEventListener("click", (e) => {
   });
 });
 
+// random colors
 randomColorBtn.addEventListener("click", (e) => {
   randomColorBtn.classList.toggle("active");
 });
 
-let paintColor = colorPicker.value;
+// erese pixel
+ereseBtn.addEventListener("click", (e) => {
+  e.target.classList.toggle("active");
+  Array.from(pixels).forEach((px) => {
+    px.addEventListener("click", eresePx);
+  });
+});
+// Should I just remove style for background or should background be a white or some other color?
 let bgColor = "rgb(255,255,255)";
 
 // Range input
@@ -58,6 +67,9 @@ range.addEventListener("change", (e) => {
   }
   if (lightenBtn.classList.contains("active")) {
     lightenBtn.classList.toggle("active");
+  }
+  if (ereseBtn.classList.contains("active")) {
+    ereseBtn.classList.toggle("active");
   }
 
   gridSizeValueSpan.forEach((span) => (span.innerText = range.value));
@@ -92,6 +104,7 @@ function createGrid(gridSize) {
       // Paint on pixel fucnctionality
       pixel.addEventListener("mousedown", (e) => paint(e));
       pixel.addEventListener("mouseover", (e) => paintDrag(e));
+      pixel.addEventListener("click", eresePx);
 
       // Random color paint
       randomColorBtn.addEventListener("click", (e) => {
@@ -132,6 +145,14 @@ function paint(e, color = colorPicker.value) {
   e.target.style.backgroundColor = color;
 }
 
+// erese pixel
+function eresePx(e) {
+  if (ereseBtn.classList.contains("active")) {
+    e.target.style.backgroundColor = "";
+  }
+  return;
+}
+
 // Shader
 function shadePixels(e) {
   if (e.target.classList.contains("shading")) {
@@ -142,9 +163,9 @@ function shadePixels(e) {
       let g = parseInt(rgbValues[1]);
       let b = parseInt(rgbValues[2]);
 
-      r -= 25;
-      g -= 25;
-      b -= 25;
+      r -= 15;
+      g -= 15;
+      b -= 15;
 
       e.target.style.backgroundColor = `rgb(${r},${g},${b})`;
     }

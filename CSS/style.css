@@ -20,8 +20,7 @@ body {
 }
 
 .canvas_container {
-  width: 720px;
-  height: 720px;
+  width: 640px;
   margin: auto;
   box-shadow: 0 0 7px 4px var(--main-bg-color);
 }
@@ -52,6 +51,7 @@ body {
 .controls_btn {
   border: 1px solid black;
   padding: 1.5em;
+  transition: all 0.47s;
 }
 
 .active {
