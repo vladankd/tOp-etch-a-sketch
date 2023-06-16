@@ -9,9 +9,11 @@ const lightenBtn = document.querySelector("#lighten_color_btn");
 // Shader
 shaderBtn.addEventListener("click", (e) => {
   shaderBtn.classList.toggle("active");
+  lightenBtn.classList.remove("active");
   let pixels = document.querySelectorAll(".pixel");
   Array.from(pixels).forEach((px) => {
     px.classList.toggle("shading");
+    px.classList.remove("lighten");
     px.addEventListener("mouseenter", shadePixels);
   });
 });
@@ -19,9 +21,11 @@ shaderBtn.addEventListener("click", (e) => {
 // Lighten
 lightenBtn.addEventListener("click", (e) => {
   lightenBtn.classList.toggle("active");
+  shaderBtn.classList.remove("active");
   let pixels = document.querySelectorAll(".pixel");
   Array.from(pixels).forEach((px) => {
     px.classList.toggle("lighten");
+    px.classList.remove("shading");
     px.addEventListener("mouseenter", lightenPixels);
   });
 });
