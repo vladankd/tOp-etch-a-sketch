@@ -16,19 +16,27 @@
     <h1 id="main_heading">Etch-a-Sketch</h1>
     <div class="canvas_container"></div>
     <div class="controls_container">
-      <label for="color_picker">Choose the color</label>
-      <input type="color" name="color_picker" id="color_picker" />
-      <button id="reset_btn" class="controls_btn">Reset</button>
-      <button id="erese_btn" class="controls_btn">Erese</button>
+      <div class="controls_group_container">
+        <label for="color_picker">Pick the color</label>
+        <input
+          type="color"
+          name="color_picker"
+          id="color_picker"
+          value="#0e8dcd"
+        />
+        <button id="random_color_btn" class="controls_btn">
+          Random colors
+        </button>
+      </div>
       <div class="grid_range_container">
-        <label for="grid_size_selector">select grid size:</label>
+        <label for="grid_size_selector">GRID SIZE</label>
         <input
           type="range"
           name="grid_size_selector"
           id="grid_size_selector"
           min="1"
           max="64"
-          value="16"
+          value="32"
           list="grid_range_list"
         />
         <datalist id="grid_range_list">
@@ -39,15 +47,19 @@
           <option value="64" label="64"></option>
         </datalist>
         <p>
-          grid size: <span class="grid_size">not set</span> X
+          <span class="grid_size">not set</span> X
           <span class="grid_size">not set</span>
         </p>
       </div>
-      <button id="random_color_btn" class="controls_btn">random colors</button>
-      <button id="shade_color_btn" class="controls_btn">shade colors</button>
-      <button id="lighten_color_btn" class="controls_btn">
-        lighten colors
-      </button>
+
+      <div class="controls_group_container">
+        <button id="reset_btn" class="controls_btn">Reset</button>
+        <button id="erase_btn" class="controls_btn">Erase</button>
+      </div>
+      <div class="controls_group_container">
+        <button id="shade_color_btn" class="controls_btn">shade</button>
+        <button id="lighten_color_btn" class="controls_btn">lighten</button>
+      </div>
     </div>
     <script src="./Scripts/main.js"></script>
   </body>

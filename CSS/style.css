@@ -1,6 +1,17 @@
+@font-face {
+  font-family: "bubblegum";
+  src: url(../Assets/Fonts/BubblegumSans-Regular.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   /* Colors */
-  --main-bg-color: rgba(8, 136, 136, 0.4);
+  --main-bg-color: #08878766;
+  /* --range-bg-color: rgba(255, 170, 0, 0.85);
+  --range-track-bg-color: rgba(76, 51, 89, 0.75); */
+  /* Fonts */
+  --main-font: sans-serif;
   /* default box sizing */
   box-sizing: border-box;
 }
@@ -13,10 +24,15 @@
 
 body {
   font-size: 1.125em;
+  font-family: var(--main-font);
 }
 
 #main_heading {
+  font-family: bubblegum;
+  font-size: 3em;
   text-align: center;
+  margin-bottom: 0.1em;
+  text-shadow: rgba(8, 135, 135, 0.75) 0px 0 15px;
 }
 
 .canvas_container {
@@ -48,10 +64,48 @@ body {
   margin: 0 1em;
 }
 
+.controls_group_container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.controls_group_container > * + * {
+  margin-top: 0.5em;
+}
+
+.grid_range_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .controls_btn {
   border: 1px solid black;
   padding: 1.5em;
   transition: all 0.47s;
+  cursor: pointer;
+}
+
+#random_color_btn {
+  background: rgb(232, 215, 13);
+  background: linear-gradient(
+    90deg,
+    rgba(232, 215, 13, 1) 0%,
+    rgba(15, 222, 147, 1) 35%,
+    rgba(0, 116, 255, 1) 100%
+  );
+}
+
+input[type="range"] {
+  cursor: ew-resize;
+}
+
+input[type="color"] {
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
+  width: 100%;
 }
 
 .active {
@@ -60,8 +114,12 @@ body {
   border: 1px solid rgb(248, 247, 246);
 }
 
-input[type="range"] {
-  display: block;
-  padding: 1em;
-  writing-mode: horizontal-tb;
+#random_color_btn.active {
+  background: rgb(232, 215, 13);
+  background: linear-gradient(
+    90deg,
+    rgb(124, 6, 6) 0%,
+    rgb(9, 130, 85) 55%,
+    rgb(1, 46, 101) 100%
+  );
 }

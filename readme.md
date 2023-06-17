@@ -13,8 +13,10 @@
 - add lighten colors functionality
   #when lighten is selected shader is deselected and vice versa
 - add erese pixel color functionality
-- grid size value display while range scrol is moved
+- grid size value display while range scroll is moved
 
 ## NOTES
 
 #TODO
+
+- Firefox layout is not very good because of the way how firefox renders the pixels

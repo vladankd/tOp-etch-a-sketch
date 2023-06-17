@@ -5,7 +5,7 @@ const colorPicker = document.querySelector("#color_picker");
 const randomColorBtn = document.querySelector("#random_color_btn");
 const shaderBtn = document.querySelector("#shade_color_btn");
 const lightenBtn = document.querySelector("#lighten_color_btn");
-const ereseBtn = document.querySelector("#erese_btn");
+const eraseBtn = document.querySelector("#erase_btn");
 
 // Shader
 shaderBtn.addEventListener("click", (e) => {
@@ -36,11 +36,11 @@ randomColorBtn.addEventListener("click", (e) => {
   randomColorBtn.classList.toggle("active");
 });
 
-// erese pixel
-ereseBtn.addEventListener("click", (e) => {
+// erase pixel
+eraseBtn.addEventListener("click", (e) => {
   e.target.classList.toggle("active");
   Array.from(pixels).forEach((px) => {
-    px.addEventListener("click", eresePx);
+    px.addEventListener("click", erasePx);
   });
 });
 
@@ -74,8 +74,8 @@ range.addEventListener("change", (e) => {
   if (lightenBtn.classList.contains("active")) {
     lightenBtn.classList.toggle("active");
   }
-  if (ereseBtn.classList.contains("active")) {
-    ereseBtn.classList.toggle("active");
+  if (eraseBtn.classList.contains("active")) {
+    eraseBtn.classList.toggle("active");
   }
 
   // reset colors on canvas
@@ -93,7 +93,15 @@ resetGrid.addEventListener("click", clearGridColors);
 ////////////////////
 
 function createGrid(gridSize) {
-  let size = canvasContainerWidth / gridSize;
+  // determine pixel size for diferent grid sizes
+  let size;
+  // To fix the bug where firefox breaks the layout on odd number of pixels due to rounding to higher number
+  // It still has bad layout on some grid sizes in FF but at least it doesnt break the layout alltogether
+  if (navigator.userAgent.includes("Firefox")) {
+    size = Math.floor(canvasContainerWidth / gridSize);
+  } else {
+    size = canvasContainerWidth / gridSize;
+  }
 
   for (let i = 0; i < gridSize; i++) {
     const row = document.createElement("div");
@@ -110,7 +118,7 @@ function createGrid(gridSize) {
       // Paint on pixel fucnctionality
       pixel.addEventListener("mousedown", (e) => paint(e));
       pixel.addEventListener("mouseover", (e) => paintDrag(e));
-      pixel.addEventListener("click", eresePx);
+      pixel.addEventListener("click", erasePx);
 
       // Random color paint
       randomColorBtn.addEventListener("click", (e) => {
@@ -150,9 +158,9 @@ function paint(e, color = colorPicker.value) {
   e.target.style.backgroundColor = color;
 }
 
-// erese pixel
-function eresePx(e) {
-  if (ereseBtn.classList.contains("active")) {
+// erase pixel
+function erasePx(e) {
+  if (eraseBtn.classList.contains("active")) {
     e.target.style.backgroundColor = "";
   }
   return;
