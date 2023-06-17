@@ -13,10 +13,8 @@
 - add lighten colors functionality
   #when lighten is selected shader is deselected and vice versa
 - add erese pixel color functionality
+- grid size value display while range scrol is moved
 
 ## NOTES
 
 #TODO
-
-- erese pixel color
-- grid size value display while range scrol is moved

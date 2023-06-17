@@ -43,13 +43,18 @@ ereseBtn.addEventListener("click", (e) => {
     px.addEventListener("click", eresePx);
   });
 });
+
 // Should I just remove style for background or should background be a white or some other color?
 let bgColor = "rgb(255,255,255)";
 
 // Range input
 const range = document.querySelector("#grid_size_selector");
-// span value
+
+// span value dinamic update
 const gridSizeValueSpan = document.querySelectorAll(".grid_size");
+range.addEventListener("input", (e) => {
+  gridSizeValueSpan.forEach((span) => (span.innerText = range.value));
+});
 
 createGrid(range.value);
 gridSizeValueSpan.forEach((span) => (span.innerText = range.value));
@@ -58,7 +63,8 @@ gridSizeValueSpan.forEach((span) => (span.innerText = range.value));
 range.addEventListener("change", (e) => {
   canvasContainer.innerHTML = "";
   createGrid(range.value);
-  // Since on grid size change colors are reset checking if active class on button is set and removing it by toggling
+
+  // check if active class on button is set and removing it by toggling
   if (randomColorBtn.classList.contains("active")) {
     randomColorBtn.classList.toggle("active");
   }
@@ -72,7 +78,7 @@ range.addEventListener("change", (e) => {
     ereseBtn.classList.toggle("active");
   }
 
-  gridSizeValueSpan.forEach((span) => (span.innerText = range.value));
+  // reset colors on canvas
   resetGrid.addEventListener("click", clearGridColors);
 });
 
@@ -108,7 +114,6 @@ function createGrid(gridSize) {
 
       // Random color paint
       randomColorBtn.addEventListener("click", (e) => {
-        // document.querySelector("#random_color_btn").classList.toggle("active");
         pixel.classList.toggle("rainbow");
       });
     }
